@@ -52,7 +52,6 @@ def getPath(map: List[List[int]]) -> str:
 def getAnswer(map: List[List[int]], path: List[Tuple[int, int]]) -> str:
     if path == []:
         return "来点fufu"
-    path = path[1:]
     ops = ''
     cur = path[0]
     for i in path[1:]:
@@ -66,7 +65,7 @@ def getAnswer(map: List[List[int]], path: List[Tuple[int, int]]) -> str:
             map[cur[0]][cur[1]] = 'a'
         cur = i
 
-    now = (1, 1)
+    now = (1, 0)
     while now != (height - 2, width - 1):
         op = map[now[0]][now[1]]
         ops += op
@@ -109,7 +108,7 @@ def getAnswer(map: List[List[int]], path: List[Tuple[int, int]]) -> str:
             now = walk(now, dire[1], (dire[2], dire[3]))
         if op == 'd':
             now = walk(now, dire[0], (dire[2], dire[3]))
-    print(map)
+    # print(map)
     return ops
 
 if __name__ == "__main__":
